@@ -54,15 +54,16 @@ class LoginController extends Controller
 
     public function users()
     {
-        return response('Authenticated');
+        return User::all();
     }
-
-    public function logout()
-        {
-            auth()->guard('user')->logout();
     
-            return response()->json(['message' => 'Successfully logged out']);
-        }
+    public function logoutUser()
+    {
+        $user = Auth::user()->token()->revoke();
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
+    }
 
     //Admin
     public function adminRegister(Request $request)
@@ -107,7 +108,14 @@ class LoginController extends Controller
 
     public function admins()
     {
-        return response('Authenticated');
+        return Admin::all();
     }
 
+    public function logoutAdmin()
+    {
+        $admin = Auth::user()->token()->revoke();
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
+    }
 }

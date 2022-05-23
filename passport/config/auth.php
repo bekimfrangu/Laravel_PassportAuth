@@ -42,7 +42,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'session',
+            'driver' => 'passport',
             'provider' => 'users',
         ],
 
@@ -52,7 +52,7 @@ return [
         ],
     
         'user-api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
         ],
     
@@ -62,7 +62,7 @@ return [
         ],
     
         'admin-api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'admins',
         ],
     ],
